@@ -1,0 +1,429 @@
+{
+  "schema": "szl.asset-registry/v1",
+  "snapshot_of": "szl-holdings/szl-asset-registry asset_map.json",
+  "generated": "2026-11-15",
+  "snapshot_note": "Curated public flagship subset of the canonical owner-curated registry (canonical totals: 390 assets, 222 mapped, 168 unmapped). Every row is verbatim from the canonical map: id, type, private flag, source_repo, and provenance method. Nothing synthesized.",
+  "stats": {
+    "snapshot_rows": 58,
+    "canonical_total": 390,
+    "canonical_mapped": 222,
+    "by_type": {
+      "models": 28,
+      "datasets": 21,
+      "spaces": 9
+    },
+    "by_method": {
+      "card": 39,
+      "name": 17,
+      "override": 2
+    }
+  },
+  "assets": [
+    {
+      "id": "SZLHOLDINGS/A11OY-MINI",
+      "type": "models",
+      "private": false,
+      "source_repo": "a11oy",
+      "method": "name"
+    },
+    {
+      "id": "SZLHOLDINGS/governed-agent-bench",
+      "type": "datasets",
+      "private": false,
+      "source_repo": "a11oy",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/a11oy-code-sft-v1",
+      "type": "datasets",
+      "private": false,
+      "source_repo": "a11oy",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/a11oy",
+      "type": "spaces",
+      "private": false,
+      "source_repo": "a11oy",
+      "method": "name"
+    },
+    {
+      "id": "SZLHOLDINGS/terra",
+      "type": "spaces",
+      "private": false,
+      "source_repo": "a11oy",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/sentra",
+      "type": "spaces",
+      "private": false,
+      "source_repo": "a11oy",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/finance",
+      "type": "spaces",
+      "private": false,
+      "source_repo": "a11oy",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/KILLINCHU-EYE",
+      "type": "models",
+      "private": false,
+      "source_repo": "killinchu",
+      "method": "name"
+    },
+    {
+      "id": "SZLHOLDINGS/killinchu-osint-corpus",
+      "type": "datasets",
+      "private": false,
+      "source_repo": "killinchu",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/killinchu",
+      "type": "spaces",
+      "private": false,
+      "source_repo": "killinchu",
+      "method": "name"
+    },
+    {
+      "id": "SZLHOLDINGS/README",
+      "type": "spaces",
+      "private": false,
+      "source_repo": "szl-router",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/llm-router-live",
+      "type": "spaces",
+      "private": false,
+      "source_repo": "szl-router",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/frontier-54-runs",
+      "type": "datasets",
+      "private": false,
+      "source_repo": "szl-gpu-bridge",
+      "method": "override"
+    },
+    {
+      "id": "SZLHOLDINGS/szl-training-receipts",
+      "type": "datasets",
+      "private": false,
+      "source_repo": "szl-gpu-bridge",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/szl-brain",
+      "type": "models",
+      "private": true,
+      "source_repo": "szl-gpu-bridge",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/eternal-auditor",
+      "type": "spaces",
+      "private": true,
+      "source_repo": "szl-gpu-bridge",
+      "method": "override"
+    },
+    {
+      "id": "SZLHOLDINGS/szl-kernels",
+      "type": "models",
+      "private": false,
+      "source_repo": "szl-kernels",
+      "method": "name"
+    },
+    {
+      "id": "SZLHOLDINGS/szl-govsign",
+      "type": "models",
+      "private": false,
+      "source_repo": "szl-govsign",
+      "method": "name"
+    },
+    {
+      "id": "SZLHOLDINGS/szl-provctl",
+      "type": "models",
+      "private": false,
+      "source_repo": "szl-provctl",
+      "method": "name"
+    },
+    {
+      "id": "SZLHOLDINGS/szl-blocked",
+      "type": "models",
+      "private": false,
+      "source_repo": "szl-blocked",
+      "method": "name"
+    },
+    {
+      "id": "SZLHOLDINGS/szl-nemo",
+      "type": "models",
+      "private": false,
+      "source_repo": "szl-nemo",
+      "method": "name"
+    },
+    {
+      "id": "SZLHOLDINGS/szl-invariants",
+      "type": "models",
+      "private": false,
+      "source_repo": "szl-invariants",
+      "method": "name"
+    },
+    {
+      "id": "SZLHOLDINGS/szl-ouroboros",
+      "type": "models",
+      "private": false,
+      "source_repo": "szl-ouroboros",
+      "method": "name"
+    },
+    {
+      "id": "SZLHOLDINGS/szl-formulas",
+      "type": "models",
+      "private": false,
+      "source_repo": "szl-formulas",
+      "method": "name"
+    },
+    {
+      "id": "SZLHOLDINGS/szl-lambda-gate",
+      "type": "models",
+      "private": false,
+      "source_repo": "szl-lambda-gate",
+      "method": "name"
+    },
+    {
+      "id": "SZLHOLDINGS/szl-governed-norm",
+      "type": "models",
+      "private": false,
+      "source_repo": "szl-governed-norm",
+      "method": "name"
+    },
+    {
+      "id": "SZLHOLDINGS/WILLAY",
+      "type": "models",
+      "private": false,
+      "source_repo": "szl-forge",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/chaski",
+      "type": "models",
+      "private": false,
+      "source_repo": "szl-forge",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/forge-v3",
+      "type": "models",
+      "private": false,
+      "source_repo": "szl-forge",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/SZL-Nemotron-Mini-4B-Estate-v1",
+      "type": "models",
+      "private": false,
+      "source_repo": "szl-forge",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/szl-frontier-evaluation-receipts",
+      "type": "datasets",
+      "private": false,
+      "source_repo": "szl-forge",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/brain-synthesized-corpus",
+      "type": "datasets",
+      "private": false,
+      "source_repo": "szl-gpu-bridge",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/SZL-Khipu-1.5B",
+      "type": "models",
+      "private": false,
+      "source_repo": "szl-khipu",
+      "method": "name"
+    },
+    {
+      "id": "SZLHOLDINGS/TinyKhipu-Nano",
+      "type": "models",
+      "private": false,
+      "source_repo": "szl-khipu",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/ReceiptAgent-Nano",
+      "type": "models",
+      "private": false,
+      "source_repo": "szl-khipu",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/Moons-Nano",
+      "type": "models",
+      "private": false,
+      "source_repo": "szl-khipu",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/MiniEmbed-Nano",
+      "type": "models",
+      "private": false,
+      "source_repo": "szl-khipu",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/SZL-Forge-1.5B-ReceiptAgent",
+      "type": "models",
+      "private": false,
+      "source_repo": "szl-atelier",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/SZL-Khipu-1.5B-abstain",
+      "type": "models",
+      "private": false,
+      "source_repo": "szl-atelier",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/qantu",
+      "type": "models",
+      "private": false,
+      "source_repo": "szl-atelier",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/waman",
+      "type": "models",
+      "private": false,
+      "source_repo": "szl-atelier",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/thesis-v18-formal-verification",
+      "type": "datasets",
+      "private": false,
+      "source_repo": "lutar-lean",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/lean-theorem-tree",
+      "type": "datasets",
+      "private": false,
+      "source_repo": "lutar-lean",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/lean-proof-corpus-v1",
+      "type": "datasets",
+      "private": false,
+      "source_repo": "lutar-lean",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/axiom-invariant-corpus-v1",
+      "type": "datasets",
+      "private": false,
+      "source_repo": "lutar-lean",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/lean-proofs-v1",
+      "type": "datasets",
+      "private": false,
+      "source_repo": "governed-receipt-spec",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/governed-receipts-bench",
+      "type": "datasets",
+      "private": false,
+      "source_repo": "governed-receipt-spec",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/energy-attested-runs",
+      "type": "datasets",
+      "private": false,
+      "source_repo": "governed-receipt-spec",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/szl-bench-suite",
+      "type": "spaces",
+      "private": false,
+      "source_repo": "frontier-bench",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/szl-quant-sft-v1",
+      "type": "datasets",
+      "private": false,
+      "source_repo": "szl-quant",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/canonical-formulas-v1",
+      "type": "datasets",
+      "private": false,
+      "source_repo": ".github",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/doctrine-v10-v11",
+      "type": "datasets",
+      "private": false,
+      "source_repo": ".github",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/szl-frontier-covenant",
+      "type": "datasets",
+      "private": false,
+      "source_repo": "szl-frontier",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/szl-estate-graph",
+      "type": "datasets",
+      "private": false,
+      "source_repo": "szl-constellation",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/test-results",
+      "type": "datasets",
+      "private": false,
+      "source_repo": "hatun-mcp",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/vault-artifacts",
+      "type": "datasets",
+      "private": true,
+      "source_repo": "platform",
+      "method": "card"
+    },
+    {
+      "id": "SZLHOLDINGS/ChaskaLLM",
+      "type": "models",
+      "private": true,
+      "source_repo": "ChaskaLLM",
+      "method": "name"
+    },
+    {
+      "id": "SZLHOLDINGS/YARQA-ATTN",
+      "type": "models",
+      "private": false,
+      "source_repo": "YARQA-ATTN",
+      "method": "name"
+    }
+  ]
+}

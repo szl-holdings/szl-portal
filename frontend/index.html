@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SZL Holdings — governed AI that signs its work</title>
+<meta name="description" content="SZL Holdings builds governed, fail-closed AI decision infrastructure: every result ships with a verifiable receipt. Live estate inventory across GitHub and Hugging Face.">
+<style>
+:root{--bg:#0b0e14;--card:#121724;--line:#232c40;--ink:#e8ecf4;--mut:#8ea0bf;--acc:#4da3ff;--ok:#39d98a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+header{padding:72px 0 40px;text-align:center;border-bottom:1px solid var(--line)}
+h1{font-size:clamp(28px,5vw,44px);letter-spacing:-.02em}
+h1 span{color:var(--acc)}
+.sub{color:var(--mut);max-width:640px;margin:16px auto 0;font-size:18px}
+.badges{margin-top:20px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.badge{border:1px solid var(--line);border-radius:999px;padding:4px 14px;font-size:13px;color:var(--mut)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:32px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.card .n{font-size:32px;font-weight:700;color:var(--acc)}
+.card .l{color:var(--mut);font-size:13px;text-transform:uppercase;letter-spacing:.08em;margin-top:6px}
+section{padding:32px 0;border-bottom:1px solid var(--line)}
+h2{font-size:24px;margin-bottom:8px}
+.note{color:var(--mut);font-size:14px;margin-bottom:16px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+th{color:var(--mut);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+.m{display:inline-block;border-radius:6px;padding:1px 8px;font-size:12px;border:1px solid var(--line);color:var(--mut)}
+.m.card{color:var(--ok);border-color:var(--ok)}
+.m.override{color:#f7c948;border-color:#f7c948}
+.m.unmapped{color:#ff7a7a;border-color:#ff7a7a}
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.links .card h3{font-size:16px;margin-bottom:6px}
+.links .card p{color:var(--mut);font-size:14px}
+footer{padding:40px 0;color:var(--mut);font-size:13px;text-align:center}
+#loadmsg{color:var(--mut);padding:16px 0;font-size:14px}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <h1>SZL Holdings <span>·</span> AI that signs its work</h1>
+  <p class="sub">Governed, fail-closed AI decision infrastructure. Every result ships with a verifiable receipt. This portal shows the live public estate across GitHub and Hugging Face.</p>
+  <div class="badges">
+    <span class="badge">github.com/szl-holdings</span>
+    <span class="badge">huggingface.co/SZLHOLDINGS</span>
+    <span class="badge">pip install szlholdings</span>
+    <span class="badge">Deny by default · fail closed</span>
+  </div>
+</header>
+
+<div class="wrap">
+  <div id="loadmsg">Loading live inventory… (set API_BASE or run the backend; static content below)</div>
+  <div class="grid" id="stats"></div>
+
+  <section>
+    <h2>Estate alignment</h2>
+    <p class="note">Hugging Face assets and their canonical GitHub source repositories. Method labels are provenance, not guesses: <span class="m card">card</span> linked from the model card, <span class="m">name</span> exact-name match, <span class="m override">override</span> owner-curated. Full coverage and live joins: <a href="../ALIGNMENT.md">ALIGNMENT.md</a>.</p>
+    <table id="align"><thead><tr><th>Hugging Face asset</th><th>GitHub source</th><th>Method</th></tr></thead><tbody></tbody></table>
+  </section>
+
+  <section>
+    <h2>Where to go</h2>
+    <div class="links">
+      <div class="card"><h3><a href="https://github.com/szl-holdings/a11oy">a11oy</a></h3><p>Governed-AI command center. Deny by default, signed receipts, SLSA-L1 provenance.</p></div>
+      <div class="card"><h3><a href="https://github.com/szl-holdings/szl-router">szl-router</a></h3><p>Sovereign-first OpenAI-compatible LLM router with receipt-gated inference.</p></div>
+      <div class="card"><h3><a href="https://github.com/szl-holdings/killinchu">killinchu</a></h3><p>Counter-UAS reference: tracking, fusion, ROE, Byzantine-fault-tolerant interdiction receipts.</p></div>
+      <div class="card"><h3><a href="https://github.com/szl-holdings/szl-gpu-bridge">szl-gpu-bridge</a></h3><p>Doctrine-governed training bridge: signed job specs to Salad GPU fleet, receipts on every run.</p></div>
+      <div class="card"><h3><a href="https://github.com/szl-holdings/frontier-54-runs">frontier-54-runs</a></h3><p>The SZL × Vidal-Gadea evaluation protocol: pre-registered criteria, mechanical verdicts.</p></div>
+      <div class="card"><h3><a href="../DEVELOPER.md">Developers</a></h3><p>SDK quickstart, PyPI packages, release path, contribution lane.</p></div>
+      <div class="card"><h3><a href="../INVESTOR.md">Investors</a></h3><p>What exists, what is measured, and what is owner-gated. No fabricated numbers.</p></div>
+      <div class="card"><h3><a href="../MONETIZATION.md">Monetization</a></h3><p>Tiered API access, gated model distribution, deployment lanes.</p></div>
+    </div>
+  </section>
+</div>
+
+<footer>© 2026 SZL Holdings · Apache-2.0 · a-11-oy.com · Documentation is claims+receipts: if it is not signed, it is not a claim.</footer>
+
+<script>
+const API = (window.API_BASE || '');
+async function getJSON(url, fallback) {
+  try {
+    const r = await fetch(url, {headers: {'Accept': 'application/json'}});
+    if (!r.ok) throw new Error(r.status);
+    return await r.json();
+  } catch (e) { return fallback; }
+}
+
+const STATIC_COVERAGE = {mapped: 222, total: 390, mapped_pct: 56.9, generated: '2026-11-15'};
+
+async function main() {
+  const sum = await getJSON(API + '/v1/summary', null);
+  const loadmsg = document.getElementById('loadmsg');
+  if (sum) {
+    loadmsg.textContent = 'Live snapshot: ' + (sum.generated_utc || '');
+    const g = sum.github, h = sum.huggingface;
+    document.getElementById('stats').innerHTML = [
+      card(g.repos_active, 'active GitHub repos'),
+      card(g.repos_total - g.repos_active, 'archived (honesty markers)'),
+      card(h.models_public, 'public HF models'),
+      card(h.datasets_public, 'public HF datasets'),
+      card(STATIC_COVERAGE.mapped + '/' + STATIC_COVERAGE.total, 'HF assets with known source'),
+    ].join('');
+  } else {
+    loadmsg.textContent = 'Backend not reachable — showing the static, receipt-backed snapshot (public-API census 2026-11-19; map ' + STATIC_COVERAGE.generated + ').';
+    document.getElementById('stats').innerHTML = [
+      card('151', 'public GitHub repositories (122 active / 29 archived)'),
+      card('151', 'public HF models'),
+      card('99', 'public HF datasets'),
+      card('222/390', 'HF assets with known source'),
+    ].join('');
+  }
+
+  const align = await getJSON(API + '/v1/alignment', null);
+  let rows = [];
+  if (align && align.rows) rows = align.rows.filter(r => r.source_repo).slice(0, 30);
+  if (!rows.length) {
+    rows = [
+      ['SZLHOLDINGS/A11OY-MINI', 'a11oy', 'name'],
+      ['SZLHOLDINGS/KILLINCHU-EYE', 'killinchu', 'name'],
+      ['SZLHOLDINGS/frontier-54-runs', 'szl-gpu-bridge', 'override'],
+      ['SZLHOLDINGS/SZL-Nemotron-Mini-4B-Estate-v1', 'szl-forge', 'card'],
+      ['SZLHOLDINGS/szl-kernels', 'szl-kernels', 'name'],
+      ['SZLHOLDINGS/lean-theorem-tree', 'lutar-lean', 'card'],
+      ['SZLHOLDINGS/governed-receipts-bench', 'governed-receipt-spec', 'card'],
+      ['SZLHOLDINGS/szl-bench-suite (Space)', 'frontier-bench', 'card'],
+    ].map(([a, s, m]) => ({asset: a, source_repo: s, method: m, source_url: 'https://github.com/szl-holdings/' + s}));
+  }
+  const body = document.querySelector('#align tbody');
+  body.innerHTML = rows.map(r =>
+    '<tr><td>' + r.asset + '</td><td><a href="' + r.source_url + '">' + r.source_repo + '</a></td><td><span class="m ' + r.method + '">' + r.method + '</span></td></tr>'
+  ).join('');
+}
+function card(n, l) { return '<div class="card"><div class="n">' + n + '</div><div class="l">' + l + '</div></div>'; }
+main();
+</script>
+</body>
+</html>
