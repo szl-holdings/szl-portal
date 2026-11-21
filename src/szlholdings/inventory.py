@@ -28,7 +28,9 @@ def github_repos(org: str = GITHUB_ORG) -> list[dict]:
             f"https://api.github.com/search/repositories?q=org:{org}+fork:true"
             f"&per_page=100&page={page}"
         )
-        if (type(data) is not dict or data.get("incomplete_results") is True
+        if (type(data) is not dict
+                or data.get("incomplete_results") is not False
+                or type(data.get("total_count")) is not int
                 or type(data.get("items")) is not list):
             raise ValueError("GITHUB_PUBLIC_CENSUS_UNAVAILABLE")
         batch = data["items"]
