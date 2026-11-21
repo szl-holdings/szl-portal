@@ -48,6 +48,13 @@ class PublicCensusTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "GITHUB_PUBLIC_CENSUS"):
                 inventory.github_repos()
 
+    def test_github_missing_pagination_metadata_fails(self):
+        with patch.object(inventory, "_get_json", return_value={
+            "items": [{"name": "repo"}],
+        }):
+            with self.assertRaisesRegex(ValueError, "GITHUB_PUBLIC_CENSUS_UNAVAILABLE"):
+                inventory.github_repos()
+
     def test_github_total_count_disagreement_fails(self):
         with patch.object(inventory, "_get_json", return_value={
             "items": [{"name": "repo"}], "total_count": 184,
