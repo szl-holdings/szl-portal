@@ -1,64 +1,104 @@
-"""GitHub <-> Hugging Face alignment matrix.
+"""Public HF asset -> GitHub discovery hints (NOT producer provenance).
 
-The canonical owner-curated map lives in the private repo
-szl-holdings/szl-asset-registry (asset_map.json, schema szl.asset-registry/v1).
-Public consumers get a bundled snapshot plus honest coverage stats; every
-mapping row is labeled with its provenance method and is never guessed here.
+Canonical producer claims require source-revision-bound, independently verified
+artifact and deployment receipts. The bundled v1 registry snapshot contains
+only historical matching methods (card/name/override), not that evidence.
 """
 from __future__ import annotations
 
 import json
+import re
 from importlib import resources
 
 BUNDLED = "asset_map_snapshot.json"
+REPO_NAME = re.compile(r"[A-Za-z0-9._-]+\Z")
+METHODS = frozenset(("card", "name", "override", "unmapped"))
+KINDS = frozenset(("models", "datasets", "spaces"))
 
 
 def load_bundled_map() -> dict:
-    """The asset-map snapshot shipped with this package (read-only, dated)."""
+    """Load a historical subset for discovery; never fetch a live asset map."""
     with resources.files("szlholdings").joinpath(BUNDLED).open("r", encoding="utf-8") as f:
         return json.load(f)
 
 
+def _validate_assets(asset_map: dict) -> list[dict]:
+    if type(asset_map) is not dict or type(asset_map.get("assets")) is not list:
+        raise ValueError("BUNDLED_ASSET_MAP_UNAVAILABLE")
+    assets = asset_map["assets"]
+    seen: set[tuple[str, str]] = set()
+    for asset in assets:
+        if type(asset) is not dict:
+            raise ValueError("BUNDLED_ASSET_RECORD_INVALID")
+        kind, ident, method, hint = (
+            asset.get("type"), asset.get("id"), asset.get("method"), asset.get("source_repo")
+        )
+        if (kind not in KINDS or type(ident) is not str or not ident.strip()
+                or method not in METHODS):
+            raise ValueError("BUNDLED_ASSET_IDENTITY_INVALID")
+        key = (kind, ident)
+        if key in seen:
+            raise ValueError("BUNDLED_ASSET_DUPLICATE")
+        seen.add(key)
+        if method == "unmapped":
+            if hint is not None:
+                raise ValueError("BUNDLED_UNMAPPED_HAS_HINT")
+        elif (type(hint) is not str or not REPO_NAME.fullmatch(hint)
+              or hint in (".", "..")):
+            raise ValueError("BUNDLED_ASSET_HINT_INVALID")
+    return assets
+
+
 def coverage(asset_map: dict) -> dict:
-    """Coverage stats computed from an asset map. Fail-closed on shape."""
-    assets = asset_map.get("assets")
-    if not isinstance(assets, list):
-        raise ValueError("asset map has no assets list; refusing to compute coverage")
-    mapped = [a for a in assets if a.get("source_repo")]
-    unmapped = [a for a in assets if not a.get("source_repo")]
+    """Historical subset counts; intentionally no producer-verified metric."""
+    assets = _validate_assets(asset_map)
+    mapped = sum(a["method"] != "unmapped" for a in assets)
     by_type: dict[str, dict[str, int]] = {}
     for a in assets:
-        t = a.get("type", "other")
-        slot = by_type.setdefault(t, {"total": 0, "mapped": 0})
-        slot["total"] += 1
-        if a.get("source_repo"):
-            slot["mapped"] += 1
+        kind = a["type"]
+        cell = by_type.setdefault(kind, {"total": 0, "mapped": 0})
+        cell["total"] += 1
+        if a["method"] != "unmapped":
+            cell["mapped"] += 1
     return {
         "generated": asset_map.get("generated"),
         "total": len(assets),
-        "mapped": len(mapped),
-        "unmapped": len(unmapped),
-        "mapped_pct": round(100.0 * len(mapped) / len(assets), 1) if assets else 0.0,
+        "mapped": mapped,  # Compatibility: discovery-hint count only.
+        "unmapped": len(assets) - mapped,
+        "mapped_pct": round(100.0 * mapped / len(assets), 1) if assets else 0.0,
         "by_type": by_type,
+        "scope": "BUNDLED_HISTORICAL_SUBSET_NOT_FULL_ESTATE",
+        "mapped_meaning": "LEGACY_SOURCE_HINT_ONLY_NOT_PRODUCER_VERIFIED",
+        "producer_verification": "UNAVAILABLE_NOT_AUDITED_IN_THIS_SCHEMA",
+        "current_full_estate_coverage": None,
+        "runtime_or_training_admitted": False,
     }
 
 
 def alignment_matrix(asset_map: dict, repos: list[dict] | None = None) -> list[dict]:
-    """Matrix rows: asset -> source repo (with repo metadata when repos given)."""
-    by_name = {r.get("name"): r for r in (repos or [])}
+    """Keep v1 consumer keys; distinguish owner hints from producer claims."""
+    assets = _validate_assets(asset_map)
+    by_name = {r.get("name"): r for r in (repos or []) if type(r) is dict}
     rows = []
-    for a in asset_map.get("assets", []):
-        src = a.get("source_repo")
-        repo = by_name.get(src) if src else None
-        rows.append(
-            {
-                "asset": a.get("id"),
-                "asset_type": a.get("type"),
-                "source_repo": src,
-                "source_url": f"https://github.com/szl-holdings/{src}" if src else None,
-                "method": a.get("method", "unmapped"),
-                "repo_language": repo.get("language") if repo else None,
-                "repo_updated": repo.get("updated_at") if repo else None,
-            }
-        )
+    for a in assets:
+        hint = a.get("source_repo")
+        meta = by_name.get(hint) if hint else None
+        rows.append({
+            "asset": a["id"],
+            "asset_type": a["type"],
+            "source_repo": hint,  # Kept for existing consumers; *not* an attested producer.
+            "source_url": f"https://github.com/szl-holdings/{hint}" if hint else None,
+            "method": a["method"],
+            "repo_language": meta.get("language") if meta else None,
+            "repo_updated": meta.get("updated_at") if meta else None,
+            "legacy_source_hint": hint,
+            "source_evidence_state": ("LEGACY_HINT_UNVERIFIED" if hint
+                                      else "NO_SOURCE_HINT"),
+            "producing_source_repo": None,
+            "producing_source_revision": None,
+            "producer_verified": False,
+            "training_verified": False,
+            "authenticated_runtime_verified": False,
+            "production_admitted": False,
+        })
     return rows
