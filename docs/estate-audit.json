@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "repo_name": "szl-portal",
+    "last_audit_date": "2026-11-23",
+    "loop_level": 1
+  },
+  "estate_context": {
+    "purpose_domain": "Front-door portal for the SZL Holdings governed-AI estate; investor- and developer-facing surface spanning frontend, FastAPI backend, szlholdings SDK, and Cloudflare mirror.",
+    "baseline_commit": "f1482f85fe509a466e60ee652145a102ab48cb4d",
+    "leader_profiles": [
+      {
+        "name": "11ty/eleventy (assigned szl-portal domain leader)",
+        "url": "https://github.com/11ty/eleventy",
+        "checked_date": "2026-11-23"
+      }
+    ]
+  },
+  "evidence_index": {
+    "publications": [
+      {
+        "id": "github:11ty/eleventy",
+        "link": "https://github.com/11ty/eleventy",
+        "applicability": "Assigned canonical static-site leader relevant to the estate front-door portal domain."
+      }
+    ],
+    "gap_register": [
+      "L1 inventory baseline: head f1482f85fe509a466e60ee652145a102ab48cb4d (2026-11-22T19:01:22-05:00) is a docs-only leader study-card commit (#5); substantive portal code landed earlier in 2ada82a Portal v1 (#2), so leader-study recommendations are recorded propose-only with no implementing change at head.",
+      "Measured workflows are ci.yml and publish-pypi.yml; no separate Cloudflare mirror deployment workflow is present in workflows_measured even though the estate context lists a Cloudflare mirror and a cloudflare/ top-level directory.",
+      "pyproject.toml and tests/ are present (measured True), but the commit history shows fix commits cafdcfa (#4) and 5b83735 correcting portal census metadata handling after Portal v1, indicating the census-metadata validation path needed post-v1 correction."
+    ],
+    "prioritized_changes": [
+      "Gap 1: Implement or explicitly disposition the propose-only 11ty/eleventy leader study-card recommendations from commit f1482f8 (#5) as tracked changes against the frontend/ static-site surface, keeping the study card as the evidence baseline.",
+      "Gap 2: Add or document a dedicated deployment workflow for the cloudflare/ mirror alongside ci.yml and publish-pypi.yml so the Cloudflare mirror described at head has an explicit CI/CD path in workflows_measured.",
+      "Gap 3: Add regression tests under tests/ covering the HF source-hint versus verified-producer distinction (cafdcfa #4) and the complete GitHub census metadata requirement (5b83735) so those post-v1 fixes are pinned against the FastAPI backend census path."
+    ]
+  },
+  "execution_trace": {}
+}
