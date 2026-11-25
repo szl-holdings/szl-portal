@@ -1,0 +1,9 @@
+// Cloudflare Worker config — szl estate inventory edge API.
+// Deploy from this directory:  npx wrangler deploy
+// (The Pages project config note lives in ../wrangler.jsonc; this file only
+//  drives the Worker. Free tier; no secrets, no paid features.)
+{
+  "name": "szl-portal-inventory",
+  "main": "index.js",
+  "compatibility_date": "2026-11-01"
+}
