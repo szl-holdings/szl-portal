@@ -28,7 +28,8 @@ th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
 th{color:var(--mut);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
 a{color:var(--acc);text-decoration:none}
 a:hover{text-decoration:underline}
-.m{display:inline-block;border-radius:6px;padding:1px 8px;font-size:12px;border:1px solid var(--line);color:var(--mut)}
+.m{display:inline-block;border-radius
+:6px;padding:1px 8px;font-size:12px;border:1px solid var(--line);color:var(--mut)}
 .m.card{color:var(--ok);border-color:var(--ok)}
 .m.override{color:#f7c948;border-color:#f7c948}
 .m.unmapped{color:#ff7a7a;border-color:#ff7a7a}
@@ -64,7 +65,8 @@ footer{padding:40px 0;color:var(--mut);font-size:13px;text-align:center}
   <section>
     <h2>Where to go</h2>
     <div class="links">
-      <div class="card"><h3><a href="https://github.com/szl-holdings/a11oy">a11oy</a></h3><p>Governed-AI command center. Deny by default, signed receipts, SLSA-L1 provenance.</p></div>
+      <div class="card"><h3><a href="https://github.com/szl-holdings/a11oy">a11oy</a></h3><p>Governed
+-AI command center. Deny by default, signed receipts, SLSA-L1 provenance.</p></div>
       <div class="card"><h3><a href="https://github.com/szl-holdings/szl-router">szl-router</a></h3><p>Sovereign-first OpenAI-compatible LLM router with receipt-gated inference.</p></div>
       <div class="card"><h3><a href="https://github.com/szl-holdings/killinchu">killinchu</a></h3><p>Counter-UAS reference: tracking, fusion, ROE, Byzantine-fault-tolerant interdiction receipts.</p></div>
       <div class="card"><h3><a href="https://github.com/szl-holdings/szl-gpu-bridge">szl-gpu-bridge</a></h3><p>Doctrine-governed training bridge: signed job specs to Salad GPU fleet, receipts on every run.</p></div>
@@ -79,7 +81,7 @@ footer{padding:40px 0;color:var(--mut);font-size:13px;text-align:center}
 <footer>© 2026 SZL Holdings · Apache-2.0 · a-11-oy.com · Documentation is claims+receipts: if it is not signed, it is not a claim.</footer>
 
 <script>
-const API = (window.API_BASE || '');
+const API = (window.API_BASE || 'https://szl-portal-inventory.stephenlutar2.workers.dev');
 async function getJSON(url, fallback) {
   try {
     const r = await fetch(url, {headers: {'Accept': 'application/json'}});
@@ -92,15 +94,16 @@ const STATIC_COVERAGE = {mapped: 222, total: 390, mapped_pct: 56.9, generated: '
 
 async function main() {
   const sum = await getJSON(API + '/v1/summary', null);
-  const loadmsg = document.getElementById('loadmsg');
-  if (sum) {
+  
+const loadmsg = document.getElementById('loadmsg');
+  if (sum && sum.github) {
     loadmsg.textContent = 'Live snapshot: ' + (sum.generated_utc || '');
-    const g = sum.github, h = sum.huggingface;
+    const g = sum.github, h = (sum.huggingface || {});
     document.getElementById('stats').innerHTML = [
       card(g.repos_active, 'active GitHub repos'),
       card(g.repos_total - g.repos_active, 'archived (honesty markers)'),
-      card(h.models_public, 'public HF models'),
-      card(h.datasets_public, 'public HF datasets'),
+      card((h.models_public ?? '—'), 'public HF models'),
+      card((h.datasets_public ?? '—'), 'public HF datasets'),
       card(STATIC_COVERAGE.mapped + '/' + STATIC_COVERAGE.total, 'HF assets with known source'),
     ].join('');
   } else {
@@ -130,7 +133,8 @@ async function main() {
   }
   const body = document.querySelector('#align tbody');
   body.innerHTML = rows.map(r =>
-    '<tr><td>' + r.asset + '</td><td><a href="' + r.source_url + '">' + r.source_repo + '</a></td><td><span class="m ' + r.method + '">' + r.method + '</span></td></tr>'
+    '<tr><td>' + r.asset + 
+'</td><td><a href="' + r.source_url + '">' + r.source_repo + '</a></td><td><span class="m ' + r.method + '">' + r.method + '</span></td></tr>'
   ).join('');
 }
 function card(n, l) { return '<div class="card"><div class="n">' + n + '</div><div class="l">' + l + '</div></div>'; }
