@@ -1,0 +1,56 @@
+{
+  "captured_at_utc": "2026-11-27T00:14:09Z",
+  "source": "public PyPI JSON API",
+  "status": "PILOT_CURRENT / ESTATE_PARTIAL",
+  "projects": [
+    {
+      "package": "szl-inference-gateway",
+      "version": "0.1.0",
+      "requires_python": ">=3.12",
+      "license_expression": "Apache-2.0",
+      "owner": "betterwithage",
+      "artifacts": [
+        {
+          "filename": "szl_inference_gateway-0.1.0-py3-none-any.whl",
+          "sha256": "4d26f772067f66bf8e273025b65ddeac05ece11fbe7a53a40faebae48e6ea81c",
+          "size": 11689
+        },
+        {
+          "filename": "szl_inference_gateway-0.1.0.tar.gz",
+          "sha256": "23ded6fb282326682f2b7edb522aa32887732402f7372c4c07ff60ea15746689",
+          "size": 11427
+        }
+      ],
+      "metadata_sha256": "940c02195e771bd68a256b519ab5b3c0e64a7227e072b427520beb85bc21a545",
+      "source_url": "https://pypi.org/pypi/szl-inference-gateway/json"
+    },
+    {
+      "package": "szl-router",
+      "version": "1.2.0",
+      "requires_python": ">=3.10",
+      "license": "Apache-2.0",
+      "owner": "betterwithage",
+      "artifacts": [
+        {
+          "filename": "szl_router-1.2.0-py3-none-any.whl",
+          "sha256": "8d60337e013811075e5abf88cfb89e5609e7cbdc35ef5c7ebd8328ac051f1496",
+          "size": 135748
+        },
+        {
+          "filename": "szl_router-1.2.0.tar.gz",
+          "sha256": "394d99c5c8f3e15cd7d27364b948db7ccd4f677fce7d71b05bc42ce6afa7e852",
+          "size": 176461
+        }
+      ],
+      "metadata_sha256": "8c29e2af3e835426cb899c002c3d6ff02e074614413bf2b259a887e3298681d2",
+      "source_url": "https://pypi.org/pypi/szl-router/json"
+    }
+  ],
+  "estate_snapshot": {
+    "repositories_scanned": 48,
+    "projects_found": 41,
+    "live_packages": 23,
+    "unresolved_holds": 24
+  },
+  "disposition": "Pilot package metadata and hashes are current. Estate-wide release receipts, double-build comparisons, SBOM/provenance, and rollback plans remain incomplete."
+}
