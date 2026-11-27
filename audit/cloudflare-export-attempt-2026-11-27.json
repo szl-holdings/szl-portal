@@ -1,0 +1,28 @@
+{
+  "captured_at_utc": "2026-11-27T06:33:59Z",
+  "source": "authorized Desktop Commander Edge CDP read-only path",
+  "device": "betterwithage",
+  "device_id": "1c6b1e9d-a01b-4556-ae44-5094f2b7d73b",
+  "cdp_endpoint": "http://127.0.0.1:9222/json/list",
+  "observed_target_count": 19,
+  "cloudflare_targets": [],
+  "direct_dashboard_fetch": {
+    "url": "https://dash.cloudflare.com/d2d4084c615189c795286ea5eaec2229/home",
+    "result": "HTTP 403"
+  },
+  "known_historical_context": {
+    "account_id": "d2d4084c615189c795286ea5eaec2229",
+    "zones": ["a-11-oy.com", "a11oy.net"],
+    "workers_scripts": 13,
+    "pages_projects": 0,
+    "source_evidence_dates_utc": ["2026-11-24", "2026-11-25", "2026-11-26"]
+  },
+  "status": "AUDIT_PARTIAL/HOLD",
+  "unknown_or_unverified": [
+    "current complete account, zone, DNS, routes, redirects, tunnels, Workers, Pages, bindings, queues, Durable Objects, D1, R2, KV, Access, WAF, Bot Management, Page Shield, Logpush, analytics, Web Analytics, API tokens, service tokens, and billing export",
+    "current route and deployment source SHA alignment",
+    "current security settings and receipt comparison"
+  ],
+  "secrets": "none included"
+}
+
