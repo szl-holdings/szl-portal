@@ -1,0 +1,90 @@
+{
+  "captured_at_utc": "2026-11-27T00:14:09Z",
+  "invariant": "GitHub source commit == build source == HF asset revision == Cloudflare deployment source == PyPI release source",
+  "status": "DRIFT/HOLD",
+  "pilot": {
+    "repositories": {
+      "szl-inference-gateway": {
+        "github_main_sha": "a9b09367eee45162e7cb70beecc9077d150c4fac",
+        "verified_commit": true,
+        "branch_protected": true,
+        "required_checks_enforcement": "off",
+        "combined_status_count": 0,
+        "workflow_run_count": 0
+      },
+      "szl-router": {
+        "github_main_sha": "d0c5d20641b5db35300f028a580119e503270e2d",
+        "verified_commit": true,
+        "branch_protected": true,
+        "required_checks_enforcement": "non_admins",
+        "required_checks": [
+          "Test (py3.12)",
+          "HF card contract",
+          "Doctrine / doctrine",
+          "Analyze (python)",
+          "trivy / Trivy fs scan"
+        ],
+        "combined_status_count": 0,
+        "workflow_run_count": 0
+      },
+      "platform": {
+        "github_main_sha": "26e3a8e4314e4c50b885fa7094121675d171b3d0",
+        "verified_commit": true,
+        "branch_protected": true,
+        "required_checks_enforcement": "off",
+        "combined_status_count": 0,
+        "workflow_run_count": 0
+      },
+      "szl-billing": {
+        "github_main_sha": "53f0acb35b9096752691e5c8ceb5517367cf1966",
+        "verified_commit": true,
+        "branch_protected": false
+      },
+      "szl-asset-registry": {
+        "github_main_sha": "f4a5e058ec3337b1a05e79ca3e601c615a7f4d62",
+        "verified_commit": true,
+        "branch_protected": false
+      }
+    },
+    "hf_asset": {
+      "repo_id": "prism-ml/Ternary-Bonsai-2-27B-gguf",
+      "revision": "839bd57023c1558945afea70a74fa83c054f35f9",
+      "last_modified": "2026-11-04T23:05:35.000Z",
+      "private": false,
+      "disabled": false,
+      "total_file_size": 26895998464,
+      "source_url": "https://huggingface.co/api/models/prism-ml/Ternary-Bonsai-2-27B-gguf"
+    },
+    "pypi": {
+      "szl-inference-gateway": {
+        "version": "0.1.0",
+        "artifact_hashes_captured": true
+      },
+      "szl-router": {
+        "version": "1.2.0",
+        "artifact_hashes_captured": true
+      }
+    },
+    "cloudflare": {
+      "account_id": "d2d4084c615189c795286ea5eaec2229",
+      "deployment_source_sha": "UNKNOWN",
+      "route_binding": "UNKNOWN",
+      "complete_export": false
+    }
+  },
+  "gate_results": {
+    "github_source": "HOLD",
+    "hf_immutable_revision": "PASS",
+    "pypi_pilot_metadata_and_hashes": "PASS",
+    "cloudflare_deployment_source": "HOLD",
+    "build_source_linkage": "HOLD",
+    "security_and_rollback_receipt": "HOLD"
+  },
+  "blockers": [
+    "Cloudflare deployment source and route binding are not evidenced",
+    "Gateway and platform branch protections enforce no required checks",
+    "Billing and asset-registry main branches are unprotected",
+    "No combined status rows or workflow runs were returned for the measured pilot commits",
+    "Estate-wide PyPI release receipt and provenance gates are incomplete"
+  ]
+}
