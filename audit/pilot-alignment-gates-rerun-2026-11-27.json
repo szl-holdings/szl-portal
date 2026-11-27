@@ -1,0 +1,135 @@
+{
+  "captured_at_utc": "2026-11-27T09:34:45Z",
+  "invariant": "GitHub source commit == build source == HF asset revision == Cloudflare deployment source == PyPI release source",
+  "status": "DRIFT/HOLD",
+  "protection_policy": {
+    "enforce_admins": true,
+    "required_approving_review_count": 1,
+    "required_linear_history": true,
+    "allow_force_pushes": false,
+    "allow_deletions": false,
+    "required_conversation_resolution": true
+  },
+  "pilot": {
+    "repositories": {
+      "szl-inference-gateway": {
+        "main_sha": "3d46740d62bb2ddadb8c29e673781103508a8ac6",
+        "branch_protected": true,
+        "required_checks": [
+          "pytest + release-gate readiness (py3.13)",
+          "pytest + release-gate readiness (py3.12)",
+          "Scorecard analysis",
+          "Analyze (python)"
+        ],
+        "required_check_conclusions": "PASS",
+        "check_runs": {"success": 6, "failure": 0, "queued": 0, "in_progress": 0}
+      },
+      "szl-router": {
+        "main_sha": "52cc20fd306d269da83e2f94afd80f9dbff408e4",
+        "branch_protected": true,
+        "required_checks": [
+          "Test (py3.12)",
+          "HF card contract",
+          "Doctrine / doctrine",
+          "Analyze (python)",
+          "trivy / Trivy fs scan"
+        ],
+        "required_check_conclusions": {
+          "Test (py3.12)": "FAILURE",
+          "HF card contract": "SUCCESS",
+          "Doctrine / doctrine": "SUCCESS",
+          "Analyze (python)": "SUCCESS",
+          "trivy / Trivy fs scan": "SUCCESS"
+        },
+        "check_runs": {"success": 15, "failure": 6, "queued": 0, "in_progress": 0}
+      },
+      "platform": {
+        "main_sha": "26e3a8e4314e4c50b885fa7094121675d171b3d0",
+        "branch_protected": true,
+        "required_checks": ["Analyze (python)"],
+        "required_check_conclusions": "PASS",
+        "check_runs": {"success": 90, "failure": 1, "queued": 0, "in_progress": 0},
+        "note": "Required context was narrowed to an observed current check. Historical or matrix-only names were not made required."
+      },
+      "szl-billing": {
+        "main_sha": "3663407cbc38a19db5f28d56368bc8ce8f11b926",
+        "branch_protected": true,
+        "required_checks": ["check"],
+        "required_check_conclusions": "PASS",
+        "check_runs": {"success": 1, "failure": 0, "queued": 0, "in_progress": 0}
+      },
+      "szl-asset-registry": {
+        "main_sha": "fc2dfb9fb3d77be172879a8c5d4c2a0390d4fb5e",
+        "branch_protected": true,
+        "required_checks": ["validate"],
+        "required_check_conclusions": "PASS",
+        "check_runs": {"success": 1, "failure": 0, "queued": 0, "in_progress": 0}
+      }
+    },
+    "router_fix_pr": {
+      "number": 182,
+      "url": "https://github.com/szl-holdings/szl-router/pull/182",
+      "head_sha": "2ebb09e48ff2e507b0b68d4d88c8eecf19c43ee8",
+      "base": "main",
+      "state": "open",
+      "checks": {"total": 15, "success": 13, "failure": 0, "queued": 0, "in_progress": 0},
+      "merge_gate": "HOLD_PENDING_REQUIRED_REVIEW",
+      "change": "Align the stale flagship workflow contract test with the existing push-only production safety invariant. The workflow itself remains unchanged and has no workflow_dispatch trigger."
+    },
+    "hf_asset": {
+      "repo_id": "prism-ml/Ternary-Bonsai-2-27B-gguf",
+      "immutable_revision": "839bd57023c1558945afea70a74fa83c054f35f9",
+      "last_modified": "2026-11-04T23:05:35.000Z",
+      "source_url": "https://huggingface.co/api/models/prism-ml/Ternary-Bonsai-2-27B-gguf"
+    },
+    "pypi": {
+      "szl-inference-gateway": {
+        "version": "0.1.0",
+        "requires_python": ">=3.12",
+        "wheel_sha256": "4d26f772067f66bf8e273025b65ddeac05ece11fbe7a53a40faebae48e6ea81c",
+        "sdist_sha256": "23ded6fb282326682f2b7edb522aa32887732402f7372c4c07ff60ea15746689",
+        "source_url": "https://pypi.org/pypi/szl-inference-gateway/json"
+      },
+      "szl-router": {
+        "version": "1.2.0",
+        "requires_python": ">=3.10",
+        "wheel_sha256": "8d60337e013811075e5abf88cfb89e5609e7cbdc35ef5c7ebd8328ac051f1496",
+        "sdist_sha256": "394d99c5c8f3e15cd7d27364b948db7ccd4f677fce7d71b05bc42ce6afa7e852",
+        "source_url": "https://pypi.org/pypi/szl-router/json"
+      },
+      "estate_snapshot": {
+        "repositories_scanned": 48,
+        "projects_found": 41,
+        "live_packages": 23,
+        "unresolved_holds": 24
+      }
+    },
+    "cloudflare": {
+      "account_id": "d2d4084c615189c795286ea5eaec2229",
+      "current_complete_export": "UNKNOWN",
+      "deployment_source_sha": "UNKNOWN",
+      "route_binding": "UNKNOWN",
+      "evidence_file": "cloudflare-export-attempt-2026-11-27.json"
+    }
+  },
+  "gate_results": {
+    "branch_protection": "PASS",
+    "router_fix_branch_checks": "PASS",
+    "github_main_source_alignment": "HOLD",
+    "hf_immutable_revision": "PASS",
+    "pypi_pilot_metadata_and_hashes": "PASS",
+    "cloudflare_deployment_source_and_complete_export": "HOLD",
+    "build_source_linkage": "HOLD",
+    "security_and_rollback_receipt": "HOLD",
+    "billing_release": "HOLD"
+  },
+  "blockers": [
+    "The protected router main branch still has a failing required Test (py3.12) check. PR 182 is green but awaits the required review and merge.",
+    "No current complete Cloudflare export or deployment-source SHA is available. The live Edge/CDP target list had zero Cloudflare targets and the direct dashboard read returned HTTP 403.",
+    "The 192-row census versus the live 188-repository connector result remains unresolved.",
+    "Estate-wide PyPI double-build comparison, SBOM/provenance, signed release receipts, and rollback plans remain incomplete.",
+    "Payment remains HOLD until signed test-mode checkout, verified webhook, idempotent ledger, settlement reconciliation, refund path, and rollback are proven."
+  ],
+  "secrets": "none included"
+}
+
