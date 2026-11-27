@@ -1,0 +1,44 @@
+{
+  "captured_at_utc": "2026-11-27T00:14:09Z",
+  "source": "authorized Desktop Commander Edge CDP read-only evidence",
+  "status": "PARTIAL/HOLD",
+  "account_id": "d2d4084c615189c795286ea5eaec2229",
+  "live_cdp": {
+    "endpoint": "http://127.0.0.1:9222/json/list",
+    "observed_tabs": [
+      {
+        "title": "Workers plans | Stephenlutar2@gmail.com's Account | Cloudflare",
+        "url": "https://dash.cloudflare.com/d2d4084c615189c795286ea5eaec2229/workers/plans"
+      },
+      {
+        "title": "Cloudflare Dashboard | Manage Your Account",
+        "url": "https://dash.cloudflare.com/d2d4084c615189c795286ea5eaec2229/api-tokens"
+      }
+    ]
+  },
+  "zones": {
+    "count": 2,
+    "names": ["a-11-oy.com", "a11oy.net"],
+    "evidence_captured_at_utc": "2026-11-25T01:57:32Z"
+  },
+  "resource_readback": {
+    "workers_scripts": 13,
+    "pages_projects": 0,
+    "account_token_verify": "ok",
+    "evidence_captured_at_utc": "2026-11-24T05:15:00Z"
+  },
+  "tunnel_observation": {
+    "mode": "quick_tunnel",
+    "origin": "http://127.0.0.1:4001",
+    "latest_observed_condition": "origin connection refused",
+    "evidence_captured_at_utc": "2026-11-26T14:50:06Z"
+  },
+  "unknown_or_unverified": [
+    "complete current DNS record export",
+    "Worker and Pages deployment source SHAs",
+    "routes, redirects, tunnels, queues, Durable Objects, D1, R2, KV",
+    "WAF, Page Shield, Bot Management, Logpush, Access, billing and analytics exports",
+    "pilot route binding to the GitHub source commit"
+  ],
+  "disposition": "Keep DRIFT/HOLD."
+}
